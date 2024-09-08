@@ -1,13 +1,12 @@
-#membuat games batu gunting kertas dan belajar push ke repo github menggunakan vscode
 import random
 
 def get_user_choice():
-    print("\nPilih salah satu: (b) Batu, (g) Gunting, (k) Kertas")
-    user_input = input("Masukkan pilihan Anda (b/g/k): ").lower()
+    print("\nPilih salah satu: (b) Batu, (g) Gunting, (k) Kertas, atau (q) untuk keluar")
+    user_input = input("Masukkan pilihan Anda (b/g/k/q): ").lower()
 
-    while user_input not in ['b', 'g', 'k']:
+    while user_input not in ['b', 'g', 'k', 'q']:
         print("Pilihan tidak valid. Coba lagi.")
-        user_input = input("Masukkan pilihan Anda (b/g/k): ").lower()
+        user_input = input("Masukkan pilihan Anda (b/g/k/q): ").lower()
 
     if user_input == 'b':
         return "Batu"
@@ -15,6 +14,8 @@ def get_user_choice():
         return "Gunting"
     elif user_input == 'k':
         return "Kertas"
+    elif user_input == 'q':
+        return "Keluar"
 
 def get_computer_choice():
     choices = ["Batu", "Gunting", "Kertas"]
@@ -35,6 +36,11 @@ def play_game():
 
     while True:
         user_choice = get_user_choice()
+
+        if user_choice == "Keluar":
+            print("Terima kasih telah bermain!")
+            break
+
         computer_choice = get_computer_choice()
 
         print(f"Pilihan Anda: {user_choice}")
